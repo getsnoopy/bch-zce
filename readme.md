@@ -7,7 +7,7 @@
         Status: Draft
         Specification Version: 1.0.1
         Initial Publication Date: 2021-08-18
-        Latest Revision Date: 2021-08-26
+        Latest Revision Date: 2024-04-03
 
 ## Summary
 
@@ -134,7 +134,7 @@ While ZCEs are likely to increase the total blockchain space consumed by point-o
 
 Modifications to transaction acceptance and relay policies can create differences in mempools (the store of not-yet-confirmed transactions) between various node versions and implementations. Because existing users of non-escrowed, zero-confirmation transactions rely on mempool consistency and network monitoring for transaction security, these changes can increase the fraud-risk of existing zero-confirmation transaction use cases<sup>1</sup>.
 
-**Mitigation**: this specification has been carefully designed to [avoid modifications which impact existing users of zero-confirmation transactions](#transaction-replacement-period).
+**Mitigation**: this specification has been carefully designed to [avoid modifications which affect existing users of zero-confirmation transactions](#transaction-replacement-period).
 
 <small>
 
@@ -981,7 +981,7 @@ For example, Alice sends a $5 ZCE-secured transaction to Bob with a $5 ZCE. She 
 
 While the ZCE protocol could be extended to allow for immediate reuse of escrowed funds – e.g. by requiring later ZCE-secured transactions to also commit to public keys used in parent transactions – such schemes are significantly harder to reason about, add combinatorial complexity to validation (for both network nodes and payees), and would only offer slightly higher liquidity for most ZCE use cases. Instead, this proposal only allows ZCE-secured transactions to be funded using confirmed outputs or the change outputs of other ZCE-secured transactions.
 
-In practice, this limitation is both simple and unlikely to impact regular usage: up to half of the confirmed funds in a wallet can be used for any number of ZCE-secured transactions within a single block period (~10 minutes), and the other half always remains immediately spendable in non-ZCE-secured transactions.
+In practice, this limitation is both simple and unlikely to affect regular usage: up to half of the confirmed funds in a wallet can be used for any number of ZCE-secured transactions within a single block period (~10 minutes), and the other half always remains immediately spendable in non-ZCE-secured transactions.
 
 ## Areas for Research
 
